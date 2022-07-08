@@ -1,0 +1,42 @@
+<configuration>
+  <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+    <file>logs/details.log</file>
+    <append>false</append>
+    <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+      <providers>
+        <timestamp/>
+        <version/>
+        <logLevel/>
+        <logLevelValue/>
+        <loggerName/>
+        <threadName/>
+        <message/>
+        <stackTrace>
+          <throwableConverter class="net.logstash.logback.stacktrace.ShortenedThrowableConverter">
+            <maxDepthPerThrowable>30</maxDepthPerThrowable>
+            <maxLength>2048</maxLength>
+            <shortenedClassNameLength>20</shortenedClassNameLength>
+            <rootCauseFirst>true</rootCauseFirst>
+          </throwableConverter>
+        </stackTrace>
+        <tags/>
+      </providers>
+    </encoder>
+  </appender>
+
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <layout class="ch.qos.logback.classic.PatternLayout">
+      <Pattern>
+        %d{HH:mm:ss.SSS} %gray(\(%t\)) %green(%-5level) %highlight([%logger{36}]) %msg%n
+      </Pattern>
+    </layout>
+  </appender>
+
+  <logger name="org.acme" level="DEBUG"/>
+  <logger name="org.hibernate.SQL" level="DEBUG"/>
+
+  <root level="INFO">
+    <appender-ref ref="CONSOLE"/>
+    <appender-ref ref="FILE"/>
+  </root>
+</configuration>

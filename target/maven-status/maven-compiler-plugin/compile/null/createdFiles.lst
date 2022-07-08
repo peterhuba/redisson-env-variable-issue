@@ -1,0 +1,5 @@
+org/acme/logging/RequestLoggingFilter.class
+org/acme/logging/ClientResponseLoggingFilter.class
+org/acme/logging/FilterHelper.class
+org/acme/logging/ClientRequestLoggingFilter.class
+org/acme/logging/ResponseLoggingFilter.class
